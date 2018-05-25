@@ -7,6 +7,8 @@
  */
 namespace DredgerQr\QrCode;
 
+use DredgerQr\QrCode\Renderer\RendererInterface;
+
 class QrCodeGenerator
 {
 

@@ -14,14 +14,18 @@ class RendererTest extends TestCase
     {
         $qrCodeGenerator = new QrCodeGenerator(new GoogleChartsRenderer(new Client()));
 
+        $path = __DIR__ . '/fixture/';
+
         $this->assertStringEqualsFile(
-            __DIR__ . '/fixture/trekk_soft_50x50.png',
+            $path . 'trekk_soft_50x50.png',
             $qrCodeGenerator->generate('Trekk Soft', 50, 50)
         );
 
+
+
         $this->assertStringEqualsFile(
-            __DIR__ . '/fixture/another_value_200x150.png',
-            $qrCodeGenerator->generate('Another Value', 200, 150)
+            $path . 'other_200x150.png',
+            $qrCodeGenerator->generate('other', 200, 150)
         );
 
     }
