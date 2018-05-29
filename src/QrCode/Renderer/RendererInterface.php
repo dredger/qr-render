@@ -19,5 +19,5 @@ interface RendererInterface
      *
      * @return mixed
      */
-     function render($text, $width, $height);
+     public function render($text, $width, $height);
 }

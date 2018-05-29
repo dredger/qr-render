@@ -11,34 +11,38 @@ class QrCodeGeneratorTest extends TestCase
 {
     public function testRendererInterface()
     {
-        $rendererMock = $this->createMock(RendererInterface::class);
+        $mock = $this->getMockBuilder(RendererInterface::class) ->getMock();
 
-//        $rendererMock->expects(
-//            $this->once())
-//            ->method('render')
-//            ->with('TrekkSoft', 100, 100);
+        $mock->expects($this->once())
+                     ->method('render')
+                     ->with('TrekkSoft', 100, 100);
+
+        $qrCode = new QrCodeGenerator($mock);
+        $qrCode->generate('TrekkSoft', 100, 100);
     }
+
 
     public function testGenerateCallRenderer()
     {
 
-        $rendererMock = $this->createMock(RendererInterface::class);
-//        $this->assertInstanceOf('RendererInterface', $rendererMock);
+        $mock = $this->getMockBuilder(RendererInterface::class) ->getMock();
+        $this->assertInstanceOf(RendererInterface::class, $mock);
 
 
-        $qrCode = new QrCodeGenerator($rendererMock);
-        $qrCode->generate('TrekkSoft', 150, 160);  // text, width, height
+        $qrCode = new QrCodeGenerator($mock);
+        $qrCode->generate('TrekkSoft', 150, 160);
     }
 
     public function testGenerateReturnData()
     {
         $imgData = "ThisIsBinaryDataOfImage";
-        $rendererMock = $this->createMock(RendererInterface::class);
-        $rendererMock->method('render')
-            ->willReturn($imgData);
 
-        $qrCode = new QrCodeGenerator($rendererMock);
-        $qrCodeData = $qrCode->generate('TrekkSoft', 50, 50);  // text, width, height
+        $mock = $this->getMockBuilder(RendererInterface::class) ->getMock();
+
+        $mock->method('render') ->willReturn($imgData);
+
+        $qrCode = new QrCodeGenerator($mock);
+        $qrCodeData = $qrCode->generate('TrekkSoft', 50, 50);
 
         $this->assertEquals($imgData, $qrCodeData);
     }
