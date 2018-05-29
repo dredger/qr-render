@@ -21,7 +21,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Skeleton1\\Tests\\" : "tests/"
+            "DredgerQr\\Tests\\" : "tests/"
         }
     }
 }
