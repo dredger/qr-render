@@ -8,7 +8,7 @@ Installation via composer
 -------------
 
 1. [Add current repository to composer.json](https://getcomposer.org/doc/05-repositories.md#vcs)
-2. Require library: `composer require "dredger/qr-render"`
+2. Require library: `composer require dredger/qr-render=dev-master`
 
 
 Usage
