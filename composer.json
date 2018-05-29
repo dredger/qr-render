@@ -1,7 +1,6 @@
 {
     "name": "dredger/qr-render",
     "description": "qr-render",
-    "type": "library",
     "version": "1.0.1",
     "authors": [
         {
