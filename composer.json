@@ -2,6 +2,8 @@
     "name": "dredger/qr-render",
     "description": "qr-render",
     "version": "1.0.1",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "dredger",
